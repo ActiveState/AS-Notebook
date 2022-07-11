@@ -1,6 +1,0 @@
-# -- START ACTIVESTATE INSTALLATION
-export PATH="/Users/evanc/.local/ActiveState/StateTool/release/bin:$PATH"
-# -- STOP ACTIVESTATE INSTALLATION
-# -- START ACTIVESTATE DEFAULT RUNTIME ENVIRONMENT
-export PATH="/Users/evanc/Library/Caches/activestate/bin:$PATH"
-# -- STOP ACTIVESTATE DEFAULT RUNTIME ENVIRONMENT

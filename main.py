@@ -17,7 +17,6 @@ with open('template.json') as file:
         metaTemplate = json.load(file)
 
 
-
 #return a hash tables of ActiveState runtimes containg IPython that have been checked out locally?
 #Key = cache id, value = project name 
 def getCachedRuntimes():
@@ -44,9 +43,7 @@ def getCachedRuntimes():
                 results[folderHash] = name
     
     return results
-            
-  
-            
+                   
 #reuturns a set of (activeState runtimes installed to jupyter notebook)  
 def getInstalledJupyterRuntimes():
     setOfInstalled = set() 
@@ -90,6 +87,6 @@ def installRuntime(runtimeHash, runtimeName):
         shutil.copy("logo-64x64.png", pathToJupyter+'/'+runtimeHash)
 
 
-
-
 syncRuntimes(getCachedRuntimes(),getInstalledJupyterRuntimes())
+print ("ActiveState Runtimes In Sync With Jupyter")
+

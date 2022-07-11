@@ -6,3 +6,6 @@ def getCachedRuntimeHash(pathToRuntimeYaml):
     bytes = str.encode(pathToRuntimeYaml) #convert to bytees
     #Only 4 LS bytes each hexadecimal charachter is 4 bits. 8x4 = 32 bit 
     return hashlib.sha1(bytes).hexdigest()[:8]
+
+
+    
