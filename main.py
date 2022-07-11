@@ -85,6 +85,9 @@ def installRuntime(runtimeHash, runtimeName):
         #write the as.yaml file
         with open(pathToJupyter+'/'+runtimeHash+'/as.yaml', "w") as file:
             file.write(runtimeHash + ':' + runtimeName)
+        #Copy AS icons
+        shutil.copy("logo-32x32.png", pathToJupyter+'/'+runtimeHash)
+        shutil.copy("logo-64x64.png", pathToJupyter+'/'+runtimeHash)
 
 
 
