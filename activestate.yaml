@@ -1,4 +1,4 @@
-project: https://platform.activestate.com/ActiveStateSE/AS-Notebook?branch=main&commitID=7fc645d2-bc3b-4bc9-9b2c-4a2747d77bd0
+project: https://platform.activestate.com/ActiveStateSE/AS-Notebook?branch=main&commitID=9623cdfd-b814-43df-ae5d-de8a063e6601
 
 scripts:
   - name: activationMessage
@@ -53,4 +53,4 @@ events:
   # This is the ACTIVATE event, it will run whenever a new virtual environment is created (eg. by running `state activate`)
   # On Linux and macOS this will be ran as part of your shell's rc file, so you can use it to set up aliases, functions, environment variables, etc.
   - name: ACTIVATE
-    value: python3 $scripts.activationMessage.path()
+    value: syncAgent
