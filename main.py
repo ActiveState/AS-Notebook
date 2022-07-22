@@ -43,7 +43,7 @@ def getCachedRuntimes():
         for checkout in checkouts:
             folderHash = helper.getCachedRuntimeHash(checkout)
             # is cached and has ipython
-            if os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/ipython') and os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/jupyter'):
+            if os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/ipykernel'):
                 name = project.get("organization")+"/"+project.get("name")
 
                 # Runtime checked out in multiple locations (could all be diffrent)
@@ -60,9 +60,9 @@ def getCachedRuntimes():
 def getInstalledJupyterRuntimes():
     setOfInstalled = set()
 
-    #Make sure the path to the jupyter metadata actually exists (will not if jupyter notebook has never been run)
+    # Make sure the path to the jupyter metadata actually exists (will not if jupyter notebook has never been run)
     if not os.path.exists(pathToJupyter):
-          os.mkdir(pathToJupyter)
+        os.mkdir(pathToJupyter)
 
     # itterate through runtimes in jupyter metadata location
     for dir in os.listdir(pathToJupyter):

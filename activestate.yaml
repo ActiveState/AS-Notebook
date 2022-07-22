@@ -1,4 +1,4 @@
-project: https://platform.activestate.com/ActiveStateSE/AS-Notebook?branch=main&commitID=9623cdfd-b814-43df-ae5d-de8a063e6601
+project: https://platform.activestate.com/ActiveStateSE/AS-Notebook?branch=main&commitID=cf3c9771-94a8-4dfe-9161-e361f56cbb90
 
 scripts:
   - name: activationMessage
