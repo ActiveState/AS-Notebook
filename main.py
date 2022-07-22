@@ -59,6 +59,11 @@ def getCachedRuntimes():
 
 def getInstalledJupyterRuntimes():
     setOfInstalled = set()
+
+    #check if jupyter has not been used before on system
+    if not os.path.exists(pathToJupyter):
+        return setOfInstalled
+
     # itterate through runtimes in jupyter metadata location
     for dir in os.listdir(pathToJupyter):
         # it is an activestate runtime if there is a as.yaml file
