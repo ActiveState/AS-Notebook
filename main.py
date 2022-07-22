@@ -11,6 +11,8 @@ from sys import platform
 
 
 # Static path info---------------------------
+#pathToRuntimes is location of cached AS runtimes
+#pathToJupyter is location fo jupyter metadata
 if platform == "linux" or platform == "linux2":  # linux
     pathToRuntimes = os.path.expanduser('~/.cache/activestate')
     pathToJupyter = os.path.expanduser('~/.local/share/jupyter/kernels')
@@ -24,7 +26,7 @@ with open('template.json') as file:
     metaTemplate = json.load(file)
 
 
-# return a hash tables of ActiveState runtimes containg IPython that have been checked out locally
+# return a hash tables of ActiveState runtimes containg IPykernal that have been checked out locally
 # Key = cache id, value = project name
 def getCachedRuntimes():
 
@@ -42,7 +44,7 @@ def getCachedRuntimes():
         checkouts = project.get("local_checkouts")
         for checkout in checkouts:
             folderHash = helper.getCachedRuntimeHash(checkout)
-            # is cached and has ipython kernel
+            # is cached and has ipykernel
             if os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/jupyter-kernel'):
                 name = project.get("organization")+"/"+project.get("name")
 
@@ -55,7 +57,7 @@ def getCachedRuntimes():
     return results
 
 # reuturns a set of (activeState runtimes installed to jupyter notebook)
-
+# uses hashed name of project path
 
 def getInstalledJupyterRuntimes():
     setOfInstalled = set()
@@ -85,7 +87,7 @@ def syncRuntimes(cachedRuntimes, installedJupyterRuntimes):
             shutil.rmtree(pathToJupyter+"/"+runtimeDir)
 
     # Install runtimes that are cached and not already installed
-    # Runtime update beahvioru(if they are already isntalled jupyter metadata remains the same-> still pointing to same oath)
+    # Runtime update behaviour -> do nothing -> metadata will not chagne
     for runtime in cachedRuntimes:
         if runtime not in installedJupyterRuntimes:
             installRuntime(runtime, cachedRuntimes.get(runtime))
