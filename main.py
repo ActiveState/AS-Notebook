@@ -10,7 +10,7 @@ import helper
 from sys import platform
 
 
-#Static info---------------------------
+#Static path info---------------------------
 if platform == "linux" or platform == "linux2": #linux
     pathToRuntimes = "~/.cache/activestate"
     pathToJupyter = "~/.local/share/jupyter/kernels"
@@ -20,12 +20,12 @@ elif platform == "darwin":    # OS X
     
  
 
-#Get metadata teamplate for install 
+#Get jupyter metadata teamplate for install 
 with open('template.json') as file:
         metaTemplate = json.load(file)
 
 
-#return a hash tables of ActiveState runtimes containg IPython that have been checked out locally?
+#return a hash tables of ActiveState runtimes containg IPython that have been checked out locally
 #Key = cache id, value = project name 
 def getCachedRuntimes():
 
@@ -57,7 +57,7 @@ def getInstalledJupyterRuntimes():
     setOfInstalled = set() 
     #itterate through runtimes in jupyter metadata location 
     for dir in os.listdir(pathToJupyter):
-       if os.path.exists(pathToJupyter+'/'+dir+'/as.yaml'):
+       if os.path.exists(pathToJupyter+'/'+dir+'/as.yaml'): #it is an activestate runtime if there is a as.yaml file
             setOfInstalled.add(dir)
 
     return setOfInstalled
@@ -67,11 +67,14 @@ def syncRuntimes(cachedRuntimes, installedJupyterRuntimes):
     #First we prune runtimes that are in installed but no longer cached
     for runtimeDir in installedJupyterRuntimes:
         if (runtimeDir not in cachedRuntimes):
-            print ("Uninstalling: " + runtimeDir)
+            #Get fingerprinted runtime name from as.yaml
+            with open(pathToJupyter+'/'+runtimeDir+'/as.yaml', "r") as file:
+                runtimeName = file.read()
+                print ("Uninstalling: " + runtimeName)
             shutil.rmtree(pathToJupyter+"/"+runtimeDir)
 
     #Install runtimes that are cached and not already installed 
-    #Update beahvioru(if they are already isntalled location to bin reamins the same)
+    #Runtime update beahvioru(if they are already isntalled jupyter metadata remains the same-> still pointing to same oath)
     for runtime in cachedRuntimes:
         if runtime not in installedJupyterRuntimes:
             installRuntime(runtime, cachedRuntimes.get(runtime))
