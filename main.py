@@ -42,8 +42,8 @@ def getCachedRuntimes():
         checkouts = project.get("local_checkouts")
         for checkout in checkouts:
             folderHash = helper.getCachedRuntimeHash(checkout)
-            # is cached and has ipython
-            if os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/ipykernel'):
+            # is cached and has ipython kernel
+            if os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/jupyter-kernel'):
                 name = project.get("organization")+"/"+project.get("name")
 
                 # Runtime checked out in multiple locations (could all be diffrent)
