@@ -43,7 +43,7 @@ def getCachedRuntimes():
         for checkout in checkouts:
             folderHash = helper.getCachedRuntimeHash(checkout)
             # is cached and has ipython
-            if os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/ipython'):
+            if os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/ipython') and os.path.exists(pathToRuntimes+'/'+folderHash+'/usr/bin/jupyter'):
                 name = project.get("organization")+"/"+project.get("name")
 
                 # Runtime checked out in multiple locations (could all be diffrent)
