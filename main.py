@@ -60,9 +60,9 @@ def getCachedRuntimes():
 def getInstalledJupyterRuntimes():
     setOfInstalled = set()
 
-    #check if jupyter has not been used before on system
+    #Make sure the path to the jupyter metadata actually exists (will not if jupyter notebook has never been run)
     if not os.path.exists(pathToJupyter):
-        return setOfInstalled
+          os.mkdir(pathToJupyter)
 
     # itterate through runtimes in jupyter metadata location
     for dir in os.listdir(pathToJupyter):
