@@ -7,11 +7,19 @@ import json
 import shutil
 import subprocess
 import helper
+from sys import platform
 
 
 #Static info---------------------------
-pathToRuntimes = os.path.expanduser('~/Library/Caches/ActiveState')
-pathToJupyter = os.path.expanduser('~/Library/Jupyter/kernels')
+if platform == "linux" or platform == "linux2": #linux
+    pathToRuntimes = "~/.cache/activestate"
+    pathToJupyter = "~/.local/share/jupyter/kernels"
+elif platform == "darwin":    # OS X
+    pathToRuntimes = "~/Library/Caches/ActiveState"
+    pathToJupyter = "~/Library/Jupyter/kernels"
+    
+ 
+
 #Get metadata teamplate for install 
 with open('template.json') as file:
         metaTemplate = json.load(file)
