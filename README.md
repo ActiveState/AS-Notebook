@@ -6,12 +6,27 @@ AS-Notebook is an integration tool that makes compatible ActiveState Python runt
 
 ### Linux & macOS
 
-Naviagte to the settings page of your ActiveState Platform project and add the url of this git repo in the appropriate field. When you state checkout your runtime for the first time this repo will automaticly be cloned. Otherwise you can clone this repo manaully using Git.
-
+In your terminal checkout the ActiveState platform project AS-Notebook. This will include a Python runtime to run this tool and a copy of Jupyter Notebook itself. Once you have the State Tool installed on your system open a terminal and run
+```
+state checkout ActiveStateSE/AS-Notebook
+```
+This will create a new folder AS-Notebook with the nessesary files. 
 
 ## Usage
 
-If you added this repo to your ActiveState project it will automaitlcly be run when you activate or checkout your runtime for the first time. You can also run main.py manually at any time. When this integration tool is run all projects (not just the runtime that executed the tool) currently checked out by the state tool will be synced with Jupyter's Kernel Manager. 
+Navigate to the AS-Notebook folder and run
+
+```
+state shell
+```
+This will make the runtimes checked out by the State Tool avliable as kernels to a local Jupyter notebook or Jupyter Lab instance. Note that a runtime needs to contain ipykernel to be compatible. 
+
+Optionally at this point if you need to start a local instance of Jupyter notebook remeain in the AS-Notebook virtaul enviornment and run
+
+```
+jupyter notebook
+```
+
 
 ### Requirements
 
