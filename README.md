@@ -21,7 +21,7 @@ state run syncAgent
 ```
 This will make all State Tool projects that support Jupyter Notebook visible to any local instance of the IDE. 
 
-Optionally at this point if you need to start a local instance of Jupyter notebook
+Optionally at this point if you need to start a local instance of Jupyter Notebook
 
 ```
 state exec jupyter notebook
@@ -31,6 +31,6 @@ state exec jupyter notebook
 ### Requirements
 
 * ActiveState StateTool is installed.
-* The runtimes you want Jupyter notebook to recognize have ipykernel installed and are checked out on your system.
-* macOS or Linux
+* The projects/runtimes to be installed into Jupyter Notebook have ipykernel installed and are checked out on your system.
+* macOS or Linux only
 * Your local Jupyter IDE is looking for kernels in the default paths 
