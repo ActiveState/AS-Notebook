@@ -10,27 +10,27 @@ In your terminal checkout the ActiveState platform project AS-Notebook. This wil
 ```
 state checkout ActiveStateSE/AS-Notebook
 ```
-This will create a new folder AS-Notebook with the nessesary files. 
+This will create a new folder AS-Notebook with the necessary files.
 
 ## Usage
 
 Navigate to the AS-Notebook folder and run
 
 ```
-state shell
+state run syncAgent
 ```
-This will make the runtimes checked out by the State Tool avliable as kernels to a local Jupyter notebook or Jupyter Lab instance. Note that a runtime needs to contain ipykernel to be compatible. 
+This will make all State Tool projects that support Jupyter Notebook visible to any local instance of the IDE. 
 
-Optionally at this point if you need to start a local instance of Jupyter notebook remeain in the AS-Notebook virtaul enviornment and run
+Optionally at this point if you need to start a local instance of Jupyter notebook
 
 ```
-jupyter notebook
+state exec jupyter notebook
 ```
 
 
 ### Requirements
 
 * ActiveState StateTool is installed.
-* The runtime you want jupyter to recognize has ipykernel installed and is checked out on your system.
-* Only works on Mac & Linux
-* Your Jupyter IDE is looking for kernels in the default path 
+* The runtimes you want Jupyter notebook to recognize have ipykernel installed and are checked out on your system.
+* macOS or Linux
+* Your local Jupyter IDE is looking for kernels in the default paths 
