@@ -5,8 +5,11 @@ AS-Notebook is an integration tool that makes compatible ActiveState Python runt
 ## Installation
 
 ### Linux & macOS
-
-In your terminal checkout the ActiveState platform project AS-Notebook. This will include a Python runtime to run this tool and a copy of Jupyter Notebook itself. Once you have the State Tool installed on your system open a terminal and run
+If you do not already have the State Tool installed open a terminal and install by running:
+```
+sh <(curl -q https://platform.activestate.com/dl/cli/1755101228.1671555745_pdli01/install.sh)
+```
+In your terminal checkout the ActiveState platform project AS-Notebook. This will include a Python runtime to run this tool and a copy of Jupyter Notebook itself.
 ```
 state checkout ActiveStateSE/AS-Notebook
 ```
