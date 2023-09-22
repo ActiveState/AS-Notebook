@@ -36,7 +36,7 @@ def getCachedRuntimes():
     commandOut = subprocess.run(
         ['state', 'projects', '--output', 'json'], stdout=subprocess.PIPE, env=os.environ)
     # decoding process returns to characters of garabafe
-    stringOut = commandOut.stdout.decode()[:-2]
+    stringOut = commandOut.stdout.decode()
     projects = json.loads(stringOut)
 
     # itterate through list of projects
